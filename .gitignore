@@ -1,0 +1,22 @@
+# Environment variables (Crucial!)
+.env
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+
+# Qdrant local storage (if you run it locally without Docker)
+qdrant_storage/
+storage/
+
+# Data and Logs
+data/
+*.log
+
+# IDEs
+.vscode/
+.idea/
