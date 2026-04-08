@@ -74,7 +74,16 @@ def delete(item_id: int, db: Session = Depends(get_db)):
 
 @app.post("/register")
 def register(user: UserCreate, db: Session = Depends(get_db)):
-    db_user = User(username=user.username, password=hash_password(user.password))
+    existing = db.query(User).filter(User.username == user.username).first()
+
+    if existing:
+        raise HTTPException(status_code=400, detail="Username already exists")
+
+    db_user = User(
+        username=user.username,
+        password=hash_password(user.password)
+    )
+
     db.add(db_user)
     db.commit()
     return {"message": "User created"}
