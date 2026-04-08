@@ -1,7 +1,9 @@
 fastapi
 uvicorn[standard]
+gunicorn
 sqlalchemy
 psycopg2-binary
 python-dotenv
 alembic
+python-jose
 passlib[bcrypt]
